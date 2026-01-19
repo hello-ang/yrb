@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2026-01-19
+
+### Added
+- **Adapter**: 新增 `yrb uv` 支持，极速加速 uv 包管理器。
+- **Project**: 在 PyPI 元数据中添加 GitHub 仓库、Issues 和主页链接。
+
+### Fixed
+- **Doc**: 修正 `CONTRIBUTING.md` 中的仓库地址。
+
 ## [1.3.1] - 2026-01-19
 
 ### Fixed

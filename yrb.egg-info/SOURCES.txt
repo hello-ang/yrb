@@ -1,6 +1,7 @@
 LICENSE
 README.md
 pyproject.toml
+tests/test_cli.py
 yrb/__init__.py
 yrb.egg-info/PKG-INFO
 yrb.egg-info/SOURCES.txt
@@ -13,6 +14,7 @@ yrb/adapter/conda_adapter.py
 yrb/adapter/pdm_adapter.py
 yrb/adapter/pip_adapter.py
 yrb/adapter/poetry_adapter.py
+yrb/adapter/uv_adapter.py
 yrb/cli/__init__.py
 yrb/cli/cli.py
 yrb/cli/exception_handler.py

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yrb"
+version = "1.3.1"
+description = "Python第三方库国内下载加速工具"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "杨如斌 (Rubin Yang)", email = "2037578680@qq.com"}
+]
+dependencies = [
+    "requests>=2.32.4",
+    "click>=8.0.0",
+    "platformdirs>=3.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/hello-ang/yrb"
+Source = "https://github.com/hello-ang/yrb"
+Issues = "https://github.com/hello-ang/yrb/issues"
+
+[project.scripts]
+yrb = "yrb.cli.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["yrb*"]
+namespaces = false

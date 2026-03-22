@@ -21,6 +21,15 @@ def _inject_mirror_env():
         os.environ["PIP_INDEX_URL"] = best["url"]
         if "trusted_host" in best:
             os.environ["PIP_TRUSTED_HOST"] = best["trusted_host"]
+        
+        # 输出加速提示
+        try:
+            from rich.console import Console
+            _console = Console()
+            delay_info = f" ({best.get('delay', '?')}ms)" if best.get('delay') is not None else ""
+            _console.print(f"  [bold cyan]⚡ yrb[/bold cyan] [dim]正在使用[/dim] [bold green]{best['name']}[/bold green] [dim]镜像加速{delay_info}[/dim]")
+        except ImportError:
+            pass
     except Exception:
         pass  # 测速失败不阻断，使用默认源
 

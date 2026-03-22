@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=42,<75", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "yrb"
-version = "1.4.0"
+version = "1.5.0"
 description = "Python第三方库国内下载加速工具"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -16,6 +16,7 @@ dependencies = [
     "requests>=2.32.4",
     "click>=8.0.0",
     "platformdirs>=3.0.0",
+    "rich>=13.0.0",
 ]
 
 [project.urls]

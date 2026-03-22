@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2026-03-22
+
+### Added
+- **CLI**: 引入 `rich` 库，全面升级终端输出体验。
+- **CLI**: `yrb test` 命令新增🥇🥈🥉**镜像测速排行榜**，延迟颜色区分（绿/黄/红）。
+- **CLI**: `yrb info` 命令使用 Rich 表格展示镜像列表、配置信息和支持工具。
+- **CLI**: `yrb config` 命令输出优化，使用 ✓ 符号和颜色标注操作结果。
+- **Core**: 新增 `get_ranked_mirrors()` 函数，返回全部镜像按延迟排序的完整列表。
+- **Adapter**: pip 加速时显示醒目提示 `⚡ yrb 正在使用 xxx 镜像加速 (xxxms)`。
+- **CLI**: 镜像名称中英文映射（aliyun → 阿里云, tsinghua → 清华大学 等）。
+
+### Changed
+- **Core**: `speed_test.py` 重构，`get_best_mirror()` 保持向后兼容。
+- **CLI**: 全面支持 Rich 不可用时的优雅降级（自动退回纯文本模式）。
+
+### Dependencies
+- 新增依赖：`rich>=13.0.0`
+
 ## [1.4.0] - 2026-01-19
 
 ### Added

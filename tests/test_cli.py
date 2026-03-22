@@ -18,7 +18,9 @@ class TestCli(unittest.TestCase):
         # 1. Set
         result = self.runner.invoke(cli, ['config', 'set', 'test.key', 'test_value'])
         self.assertEqual(result.exit_code, 0)
-        self.assertIn('Set test.key = test_value', result.output)
+        # Rich 输出包含: ✓ 已设置 test.key = test_value
+        self.assertIn('test.key', result.output)
+        self.assertIn('test_value', result.output)
         
         # Verify persistence
         config = load_config()
@@ -27,12 +29,13 @@ class TestCli(unittest.TestCase):
         # 2. Get
         result = self.runner.invoke(cli, ['config', 'get', 'test.key'])
         self.assertEqual(result.exit_code, 0)
-        self.assertIn('test.key = test_value', result.output)
+        self.assertIn('test.key', result.output)
+        self.assertIn('test_value', result.output)
 
         # 3. Unset
         result = self.runner.invoke(cli, ['config', 'unset', 'test.key'])
         self.assertEqual(result.exit_code, 0)
-        self.assertIn('Unset test.key', result.output)
+        self.assertIn('test.key', result.output)
         
         # Verify removal
         config = load_config()
@@ -42,7 +45,11 @@ class TestCli(unittest.TestCase):
         """测试 info 命令"""
         result = self.runner.invoke(cli, ['info'])
         self.assertEqual(result.exit_code, 0)
-        self.assertIn('Supported Mirrors:', result.output)
+        # Rich 输出包含镜像源表格标题或降级时的纯文本
+        self.assertTrue(
+            '镜像源' in result.output or 'Supported Mirrors:' in result.output,
+            f"Expected mirror info in output, got: {result.output[:200]}"
+        )
 
 if __name__ == '__main__':
     unittest.main()
